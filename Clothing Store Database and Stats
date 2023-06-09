@@ -1,0 +1,30 @@
+CREATE TABLE clothes (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, color TEXT);
+
+INSERT INTO clothes VALUES 
+(1, "crops", 5.50, 3, "pink"),
+(2, "tanks", 5.50, 4, "yellow"),
+(3, "tanks", 5.50, 3, "pink"),
+(4, "crops", 5.50, 3, "yellow"),
+(5, "shorts", 4.00, 6, "black"),
+(6, "shorts", 4.00, 7, "pink"),
+(7, "shorts", 4.00, 7, "white"),
+(8, "leggings", 6.00, 10, "black"),
+(9, "leggings", 6.00, 10, "white"),
+(10, "leggings", 6.00, 8, "red"),
+(11, "leggings", 6.00, 10, "blue"),
+(12, "leggings", 6.00, 9, "pink"),
+(13, "socks", 3.00, 10, "black"),
+(14, "socks", 3.00, 15, "white"),
+(15, "socks", 3.00, 11, "grey");
+
+
+--display the database ordered by price.
+SELECT * FROM clothes
+ORDER BY "PRICE" desc;
+
+--what is the sum quantity of items in the store?
+SELECT name, 
+SUM (quantity) 
+FROM clothes 
+GROUP BY name;
+

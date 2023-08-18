@@ -71,8 +71,21 @@ INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,Cit
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,City,State) VALUES ('Jan 15 1967','I (1)','Green Bay Packers',35,'Kansas City Chiefs',10,'Bart Starr+','Memorial Coliseum','Los Angeles','California');
 
 
---Which team has the most Superbowl wins? List the winners in order from who has the most Superbowl wins to least Superbowl wins
+--What is the average number of points of each SuperBowl winner?
 
+SELECT AVG(Winner_pts)
+FROM superbowls;
+
+
+--How many times has Tom Brady won MVP for the Patriots?
+
+SELECT MVP, Winner
+FROM superbowls
+WHERE MVP='Tom Brady'
+AND Winner= 'New England Patriots';
+
+
+--Which team has the most Superbowl wins? List the winners in order from who has the most Superbowl wins to least Superbowl wins.
 SELECT 
     Winner,
     COUNT(SB) AS wins
@@ -80,8 +93,8 @@ FROM superbowls
 GROUP BY Winner
 ORDER BY wins desc;
 
---Which teams won a SuperBowl by at least 2 possessions?
 
+--Which teams won a SuperBowl by at least 2 possessions?
 SELECT Loser, Winner, Winner_pts, Loser_pts,
     CASE
         WHEN (Winner_pts-Loser_pts) >8 THEN 'Yes'
